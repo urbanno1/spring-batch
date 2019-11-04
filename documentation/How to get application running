@@ -1,0 +1,12 @@
+
+Endpoints in the application:
+
+1. "/adduser" - to add a user to the application.
+2. "/authenticate" - to authenticate a user and generate a token for a user.
+3. "/load" to automate the batch process
+
+Procedures:
+I: First create role, admin then Create a user by calling the "/adduser" url. in the format {username: lllll, password:llll, role: {roleId:1, roleName:ROLE_ADMIN}}
+II: then authenticate in the application by using the  user you created above
+
+II: Second call the load api to automate the batch process.
