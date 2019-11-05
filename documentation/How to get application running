@@ -1,12 +1,27 @@
 
 Endpoints in the application:
 
-1. "/adduser" - to add a user to the application.
-2. "/authenticate" - to authenticate a user and generate a token for a user.
-3. "/load" to automate the batch process
+1. "http://localhost:8080/adduser" - to add a user to the application.
+2. "http://localhost:8080/authenticate" - to authenticate a user and generate a token for a user.
+3. "http://localhost:8080/load" to automate the batch process
 
 Procedures:
-I: First create role, admin then Create a user by calling the "/adduser" url. in the format {username: lllll, password:llll, role: {roleId:1, roleName:ROLE_ADMIN}}
-II: then authenticate in the application by using the  user you created above
 
-II: Second call the load api to automate the batch process.
+**** first do docker-compose to run the dockerized application ****
+
+I: First get authenticated into the system by using the following admin user at
+url:  "http://localhost:8080/authenticate"
+method: POST
+ContentType: application/json.
+
+Copy this json to the 'raw' body of postman for authentication:
+
+{
+	"username": "Chinedu",
+	"password": "chinedu"
+}
+
+
+II. Pass the header as "Authorization" then  Bearer + " token generated" (add a space between the Bearer and token generated)
+  to be able to call the load api to kickstart the batch process. at url "http://localhost:8080/load"
+
